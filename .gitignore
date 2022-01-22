@@ -1,0 +1,17 @@
+/my-proyect/node_modules
+/my-proyect/public/hot
+/my-proyect/public/storage
+/my-proyect/storage/*.key
+/my-proyect/vendor
+/my-proyect/.env
+/my-proyect/.env.backup
+/my-proyect/.phpunit.result.cache
+/my-proyect/docker-compose.override.yml
+/my-proyect/Homestead.json
+/my-proyect/Homestead.yaml
+/my-proyect/npm-debug.log
+/my-proyect/yarn-error.log
+/my-proyect/.idea
+/my-proyect/.vscode
+*.
+!.gitignore
