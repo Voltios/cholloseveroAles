@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CholloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('main');
+// });
+
+
+Route::get("/", [CholloController::class, "main"])->name("main");
+
+Route::get("crear", [CholloController::class, "crear"])->name("crear");
+Route::post("crearChollo",[CholloController::class, "crearChollo"])->name("crearChollo");
+Route::get("infoChollo/{id?}", [CholloController::class, "informacion"])->name("chollos.infoChollo");
