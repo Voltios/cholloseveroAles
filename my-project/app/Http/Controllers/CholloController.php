@@ -11,6 +11,7 @@ class CholloController extends Controller
     public function main()
     {
         $chollos = Chollo::all();
+        $chollos = Chollo::paginate(5);
         return view("index", @compact("chollos"));
     }
 
@@ -136,4 +137,6 @@ class CholloController extends Controller
         $chollos = Chollo::all()->where("categoria", "SET");
         return view("index", @compact("chollos"));
     }
+
+  
 }

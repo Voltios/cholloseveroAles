@@ -500,6 +500,17 @@ option:hover {
     background-color: #5f977c;
 }
 
+.flechas {
+    height: 10px;
+    width: 10px;
+    /* width: 100%; */
+    text-align: center;
+}
+
+.flechas p {
+    /* width: 10px; */
+}
+
 .edit-page textarea {
     vertical-align: middle;
     height: 300px;
