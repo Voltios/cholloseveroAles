@@ -1,6 +1,8 @@
 @import url('http://fonts.cdnfonts.com/css/insaniburger');
+@import url('http://fonts.cdnfonts.com/css/rebellion');
 :root {
-    --burguer: 'Insaniburger', sans-serif;
+    --burguer: 'Rebellion', sans-serif;
+    --spartan: 'Rebellion', sans-serif;
 }
 
 * {
@@ -11,15 +13,14 @@
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1.2px;
-    color: #191919;
 }
 
 .main-container {
-    background-color: #585858;
+    background-color: #89D9B2;
 }
 
 .tagbar-container {
-    background-color: #191919;
+    background-color: #21741b;
 }
 
 .main-nav,
@@ -35,6 +36,15 @@
 
 .main-nav ul {
     display: inherit;
+    align-items: baseline;
+}
+
+.main-nav ul input {
+    border: none;
+}
+
+.main-nav ul input:focus {
+    outline: none;
 }
 
 .main-nav ul li {
@@ -44,29 +54,60 @@
 }
 
 .btn {
+    border: none;
     border-radius: 10px;
     padding: 10px;
+    font-size: 1em !important;
 }
 
-.secondary-btn {
-    background-color: #191919;
+.editar {
     color: white;
-    font-size: .85em;
-    transition: background-color .4s ease;
+    background-color: #4fb848;
+    transition: background-color .2s ease;
 }
 
-.secondary-btn:hover {
-    background-color: #2e2e2e;
+.editar:hover {
+    background-color: #39ac31;
+}
+
+.borrar {
+    color: white;
+    background-color: rgb(238, 77, 77);
+    transition: background-color .2s ease;
+}
+
+.borrar:hover {
+    background-color: rgb(241, 50, 50);
+}
+
+.volver {
+    color: white;
+    background-color: #8e40b6;
+    transition: background-color .2s ease;
+}
+
+.volver:hover {
+    background-color: #841eb8;
 }
 
 .primary-btn {
-    background-color: #fa8723;
     color: white;
-    transition: background-color .4s ease;
+    background-color: #7C3D80;
+    transition: all .2s ease;
 }
 
 .primary-btn:hover {
-    background-color: #FF9300;
+    background-color: #9a5e9e;
+}
+
+.secondary-btn {
+    color: white;
+    background-color: #7716A6;
+    transition: all .2s ease;
+}
+
+.secondary-btn:hover {
+    background-color: #8e40b6;
 }
 
 input[type="search"] {
@@ -84,14 +125,19 @@ input[type="search"] {
     color: white;
     padding: 10px;
     margin: 10px 5px;
-    background-color: rgb(61, 61, 61);
+    background-color: #39ac31;
     border-radius: 10px;
     font-size: .85em;
     transition: background-color .4s ease;
 }
 
+.tagbar-nav ul li a,
+i {
+    color: white;
+}
+
 .tagbar-nav ul li:hover {
-    background-color: rgb(126, 126, 126);
+    background-color: #21741b;
 }
 
 .h1 {
@@ -99,29 +145,63 @@ input[type="search"] {
 }
 
 .title {
-    padding: 30px;
+    border-radius: 13px;
+    padding: 20px;
     font-family: var(--burguer);
+    color: white;
+    letter-spacing: 5px;
+    font-size: 3.2em;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    33% {
+        color: rgb(207, 207, 207);
+        text-shadow: 0 0 15px #5f977c;
+    }
+    66% {
+        color: rgb(207, 207, 207);
+        text-shadow: 0 0 15px #a158a7;
+    }
+    100% {
+        color: rgb(207, 207, 207);
+        text-shadow: 0 0 15px #7716A6;
+    }
 }
 
 main {
-    background-color: #cecece;
-    height: 100%;
+    background-color: #191919;
+    opacity: 1;
+    background-image: radial-gradient(#5f977c 2px, #191919 2px);
+    background-size: 40px 40px;
 }
 
 .container {
     margin: 0 auto;
     width: 75%;
+    padding-bottom: 20px;
 }
 
 .chollo {
+    margin: 0 auto;
+    width: 85%;
     height: 270px;
     background-color: white;
-    border-radius: 13px;
-    padding: 15px;
+    border-radius: 10px;
     margin-top: 20px;
-    flex-direction: column;
-    display: flex;
-    align-content: space-between;
+    padding-left: 20px;
+}
+
+.chollo img {
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.contenedor-btn {
+    height: 100%;
+    position: relative;
+    top: 220px;
+    left: 60px;
 }
 
 .precio-original {
@@ -129,37 +209,92 @@ main {
     text-decoration: line-through;
 }
 
+.col-3 {
+    float: left;
+    margin-bottom: 20px !important;
+}
+
+.left {
+    width: 20%;
+}
+
+.mid {
+    width: 60%;
+}
+
+.right {
+    width: 20%;
+}
+
 .precio-rebajado {
     color: #fa8723;
     font-size: 1.1em;
 }
 
-.info-container {
-    float: left;
-    display: flex;
-}
-
-.chollo a,
-.chollo i {
+.chollo .btn {
     color: white;
 }
 
+.chollo h3 {
+    font-size: 1.6em;
+    text-transform: uppercase;
+    margin: 10px;
+    font-family: var(--anc);
+}
+
+.chollo h3 a {
+    color: #191919;
+}
+
+.chollo h3 a:hover {
+    text-decoration: underline;
+}
+
+.info-container {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.info-chollo {
+    margin-bottom: 10px;
+}
+
+
+/* .info-chollo {
+    margin: 10px;
+} */
+
 .linkChollo {
-    display: flex;
+    text-align: center;
     justify-content: flex-end;
     width: 20%;
 }
 
 footer {
+    padding-bottom: 300px;
+    padding-top: 20px;
+    height: 20vh;
     background-color: #2e2e2e;
-    text-align: center;
-    /* align-items: space-around; */
     display: flex;
+    width: 100%;
+    vertical-align: middle;
+    flex-direction: column;
 }
 
-.footer-container {
+footer p {
+    margin: 20px;
+    text-align: center;
     color: white;
-    align-content: space-between;
+}
+
+footer a {
+    color: white;
+    transition: color .2s ease;
+}
+
+footer a:hover {
+    cursor: not-allowed;
+    color: rgb(235, 61, 235);
 }
 
 .p1 {
@@ -173,8 +308,209 @@ footer {
 .p3 {}
 
 @media (max-width:1100px) {
+    .chollo {
+        width: 100%;
+    }
+    .chollo img {
+        height: 150px;
+        width: 200px;
+    }
     .main-nav {
         align-content: center;
         width: 100%;
+    }
+}
+
+.chollo-container {
+    height: 100vh;
+}
+
+.chollo-container h1 {
+    padding: 20px;
+    text-align: center;
+}
+
+.chollo-unico {
+    height: 55vh;
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.chollo-unico img {
+    float: left;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.chollo-unico h2 {
+    font-size: 2em;
+}
+
+.chollo-unico .precios {
+    font-size: 1.7em;
+}
+
+.chollo-unico .descripcion {
+    /* border: 1px solid red; */
+    height: 200px;
+    overflow: hidden;
+    /* padding: 5px; */
+    margin-top: 15px;
+}
+
+.chollo-unico form {
+    float: right;
+    margin: 20px;
+    margin-top: 50px;
+}
+
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    text-align: center;
+    font-family: 'Arvo', serif;
+}
+
+.page_404 img {
+    width: 40%;
+}
+
+.four_zero_four_bg {
+    background-image: url(https://cdn.dribbble.com/users/1925067/screenshots/16439652/media/01a0ddd83ef13707193710594cd31f2d.gif);
+    height: 1000px;
+    background-position: center;
+}
+
+.four_zero_four_bg h1 {
+    font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+    font-size: 80px;
+}
+
+.link_404 {
+    color: #fff!important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
+}
+
+.no-disponible {
+    color: red;
+    font-size: 1.2em;
+}
+
+.edit-page {
+    text-align: center;
+    color: white;
+}
+
+.edit-page form {
+    background-color: white;
+    border-radius: 13px;
+    color: #191919;
+    /* display: flex; */
+}
+
+.edit-page button {
+    float: left;
+}
+
+.flipswitch {
+    vertical-align: middle;
+    position: relative;
+    background: white;
+    width: 120px;
+    height: 40px;
+    -webkit-appearance: initial;
+    border-radius: 3px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.flipswitch:after {
+    position: absolute;
+    top: 5%;
+    display: block;
+    line-height: 32px;
+    width: 45%;
+    height: 90%;
+    background: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.3s ease-in 0s;
+    color: black;
+    border: #888 1px solid;
+    border-radius: 10px;
+}
+
+.flipswitch:after {
+    left: 2%;
+    content: "NO";
+}
+
+.flipswitch:checked:after {
+    left: 53%;
+    content: "SÍ";
+}
+
+.edit-page label {
+    margin: 20px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.edit-page input {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.edit-page input:focus,
+.edit-page textarea:focus {
+    outline: none;
+}
+
+.mensaje {
+    font-size: 2em;
+    color: rgb(255, 47, 47);
+}
+
+select {
+    padding: 10px;
+    border-radius: 13px;
+    border: none;
+    color: white;
+    font-size: .9em;
+    background-color: #4fb848;
+}
+
+option:hover {
+    background-color: #5f977c;
+}
+
+.edit-page textarea {
+    vertical-align: middle;
+    height: 300px;
+    width: 450px;
+    resize: none;
+    border-radius: 13px;
+    padding: 20px;
+}
+
+@media(max-width:720px) {
+    .chollo img {
+        display: none;
     }
 }

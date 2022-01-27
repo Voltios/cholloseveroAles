@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('estilos.css') }}">
+    <link rel="shortcut icon" href="{{ asset('img/logo.svg') }}" type="image/x-icon">
     <title>Chollosevero</title>
 </head>
 
@@ -17,18 +18,21 @@
             <nav class="main-nav">
 
                 <ul class="logo-list">
-                    <li><a href="{{ route('main') }}"><img src="" alt="logo" height="50" width="120"></a></li>
+                    <li><a href="{{ route('main') }}"><img src="{{ asset('img/logo.svg') }}" alt="logo" height="50"
+                                width="100"></a></li>
                 </ul>
                 <ul class="action-list">
                     <li>
                         <input type="search" name="" placeholder="Buscar...">
+
                     </li>
                     <li>
-                        <a href="" class="btn secondary-btn">Regístrate / Inicia sesión</a>
+                        <a href="" class="btn secondary-btn">
+                            <i class="fas fa-user    "></i> Regístrate / Inicia sesión</a>
                     </li>
                     <li>
                         <a href="{{ route('crear') }}" class="btn primary-btn">
-                            <i class="fas fa-plus"> Subir chollo</i>
+                            <i class="fas fa-plus"></i> Subir producto
                         </a>
                     </li>
                 </ul>
@@ -38,12 +42,17 @@
 
             <nav class="tagbar-nav">
                 <ul>
-                    <li><a href=""><i class="fas fa-microchip"> </i> Electrónica</a></li> {{-- a completar con route --}}
-                    <li><a href=""><i class="fas fa-gamepad"> </i> Gaming</a></li>
-                    <li><a href=""><i class="fas fa-drumstick-bite"> </i> Alimentación</a></li>
-                    <li><a href=""><i class="fas fa-tshirt"> </i> Moda</a></li>
-                    <li><a href=""><i class="fas fa-heart"> </i> Salud y belleza</a></li>
-                    <li><a href=""><i class="fas fa-plane"> </i> Viajes</a></li>
+                    <li><a href="cbd"><i class="fas fa-cannabis"> </i> Cannabis</a></li> {{-- a completar con route --}}
+                    <li><a href="lsd"><i class="fas fa-pills"> </i> LSD</a></li>
+                    <li><a href="oxd"><i class="fas fa-capsules"> </i> Oxicodona</a></li>
+                    <li><a href="mda"><i class="fas fa-tablets"> </i> MDA</a></li>
+                    <li><a href="ben"><i class="fas fa-radiation"> </i> Benzoilmetilecgonina</a></li>
+                    <li><a href="mrf"><i class="fas fa-syringe"> </i> Diacetilmorfina</a></li>
+                    <li><a href="psc"><i class="fas fa-utensils"></i> Psilocibios</a></li>
+                </ul>
+                <ul>
+                    <li><a href="destacados"> <i class="fas fa-fire"></i> Destacados</a></li>
+                    <li><a href="nuevos"> <i class="fas fa-star"></i> Los más nuevos</a></li>
                 </ul>
             </nav>
         </div>
@@ -52,16 +61,24 @@
         <div class="container">
             @yield('formulario')
             @yield('chollos')
+            @yield('informacion')
+            @yield('editar')
         </div>
     </main>
 
     <footer>
-        <div class="footer-container">
 
-            <p class="p p1">Proyecto realizado para práctica de Laravel, Eloquent y PHP</p>
-            <p class="p p3 author"><b>Autor: </b><a href="https://instagram.com/alesvolta_" target="_blank">Ales Volta</a></p>
-            <span class="p p3 copy">©CholloSevero 2022</span>
-        </div>
+        <p class="p p1">Proyecto realizado para práctica de Laravel, Eloquent y PHP. <br>
+            <span>Todo el contenido de la aplicación es meramente recreativo, sin ningún fin de ofender a nadie.</span>
+        </p>
+        <p class="p p3 author">
+            <b>Autor: </b>
+            <a href="https://instagram.com/alesvolta_" target="_blank">
+                Ales Volta
+            </a>
+        </p>
+        <p class="p p3 copy">©CholloSevero {{ date('Y') }}</p>
+
     </footer>
 </body>
 

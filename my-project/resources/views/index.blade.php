@@ -1,24 +1,65 @@
 @extends('main')
 @section('chollos')
-    <h1 class="h1 title">Listado de chollos</h1>
+    <h1 class="h1 title">Listado de productos</h1>
     @foreach ($chollos as $chollo)
         <div class="chollo">
-            <h3 class="nombre-chollo"> {{ $chollo->titulo }}</h3>
-            <div class="info-container">
+            <div class="col-3 left">
+                <h3 class="nombre-chollo"><a href="{{ route('infoChollo', $chollo->id) }}"> {{ $chollo->titulo }}</a>
+                </h3>
+
                 <div class="pic-container">
-                    <img src="{{ URL::to("/assets/img/$chollo->id" . '-chollo-severo.jpg') }}"
-                        alt="{{ $chollo->id . '-chollo-severo' }}" height="200" width="200">
+                    <img src="{{ asset('img/' . $chollo->id . '-chollo-severo.jpg') }}"
+                        alt="{{ $chollo->id . '-chollo-severo' }}" height="200" width="250">
                 </div>
-                <p class="info-chollo">
-                    <span class="precio-rebajado">{{ $chollo->precio }}€</span>
-                    <span class="precio-original">{{ $chollo->precioDescuento }}€</span> |
-                    <span class="categoria-chollo">{{ $chollo->categoria }}</span> {{-- a editar para ponerle route("categoria") --}}
-                </p>
-                <p class="descripcion-chollo">{{ $chollo->descripcion }}</p>
+
             </div>
-            <a class="btn primary-btn linkChollo" href="">
-                <i class="fas fa-external-link"></i> Ir al chollo
-            </a>
+            <div class="col-3 mid">
+                <div class="info-container">
+                    <p class="info-chollo">
+                        <span class="precio-rebajado">{{ $chollo->precioDescuento }}€</span>
+                        <span class="precio-original">{{ $chollo->precio }}€</span> //
+                        <span class="categoria-chollo">
+                            @switch($chollo->categoria)
+                                @case('CAN')
+                                    {{ $chollo->categoria = 'Cannabis' }}
+                                @break
+                                @case('LSD')
+                                    {{ $chollo->categoria = 'LSD' }}
+                                @break
+                                @case('OXI')
+                                    {{ $chollo->categoria = 'Oxicodona' }}
+                                @break
+                                @case('MDA')
+                                    {{ $chollo->categoria = 'MDA' }}
+                                @break
+                                @case('COC')
+                                    {{ $chollo->categoria = 'Benzoilmetilecgonina' }}
+                                @break
+                                @case('DIA')
+                                    {{ $chollo->categoria = 'Diacetilmorfina' }}
+                                @break
+                                @case('SET')
+                                    {{ $chollo->categoria = 'psilocibios' }}
+
+                                @break
+                            @endswitch
+
+                        </span> {{-- a editar para ponerle route("categoria") --}}
+                    </p>
+
+                    <p class="descripcion-chollo"><b>Descripción: </b><br>{{ $chollo->descripcion }}</p>
+                </div>
+            </div>
+            <div class="col-3 right">
+                <div class="contenedor-btn">
+
+                    <a class="btn primary-btn linkChollo" href="{{ route('infoChollo', $chollo->id) }}">
+                        {{-- pasamos la id como parámetro --}}
+                        <i class="fas fa-external-link"></i> Ir al chollo
+                    </a>
+                </div>
+            </div>
+
         </div>
     @endforeach
 @endsection

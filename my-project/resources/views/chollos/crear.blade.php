@@ -1,33 +1,48 @@
 @extends('main')
 @section('formulario')
+    <div class="edit-page">
+        <h2 class="title">Añadir un nuevo producto</h2>
+        @if (session('mensaje'))
+            <div class="mensaje-chollo">
+                {{ session('mensaje') }}
+            </div>
+        @endif
+        <form action="{{ route('crearChollo') }}" method="POST">
+            @csrf
+            <label for="fnom">Nombre del producto
 
-    @if (session('mensaje'))
-        <div class="mensaje-chollo">
-            {{ session('mensaje') }}
-        </div>
-    @endif
-    <form action="{{ route('crearChollo') }}" method="POST">
-        @csrf
-        <label for="fnom">Nombre del chollo</label>
-        <input type="text" name="ftit" placeholder="" class="form-input-text" autofocus>
-        <label for="fdesc">Descripción del chollo</label>
-        <textarea name="fdesc" cols="30" rows="10" placeholder="Describe tu chollo" class="form-input-textarea"></textarea>
-        <label for="furl">Enlace a la página del chollo</label>
-        <input type="url" name="furl" placeholder="www.ejemplo.com">
-        <select name="fcat">
-            <option value="ELE">Electrónica</option>
-            <option value="GAM">Gaming</option>
-            <option value="ALI">Alimentación</option>
-            <option value="MOD">Moda</option>
-            <option value="SAL">Salud y belleza</option>
-            <option value="VIA">Viajes</option>
-        </select>
-        <label for="fprecio">Precio original del chollo</label>
-        <input type="text" name="fprecio">
+                <input type="text" name="ftit" placeholder="" class="form-input-text" autofocus>
+            </label>
+            <label for="fdesc">Descripción del producto
 
-        <label for="fnuevoPrecio">Precio con descuento</label>
-        <input type="text" name="fnuevoPrecio">
-        <input type="submit" value="Enviar!">
-    </form>
+                <textarea name="fdesc" cols="30" rows="10" placeholder="Describe tu chollo"
+                    class="form-input-textarea"></textarea>
+            </label>
 
+            <label for="furl">Enlace a la página del producto
+                <input type="url" name="furl" placeholder="www.ejemplo.com">
+            </label>
+            <label for="fcat"> Categoría
+
+                <select name="fcat">
+                    <option value="CAN">Cannabis</option>
+                    <option value="LSD">LSD</option>
+                    <option value="OXI">Oxicodona</option>
+                    <option value="MDA">MDA</option>
+                    <option value="COC">Benzoilmetilecgonina</option>
+                    <option value="DIA">Diacetilmorfina</option>
+                    <option value="SET">Psilocibios</option>
+                </select>
+            </label>
+            <label for="fprecio">Precio original del producto
+                <input type="text" name="fprecio">
+            </label>
+
+            <label for="fnuevoPrecio">Precio con descuento
+                <input type="text" name="fnuevoPrecio">
+            </label>
+            <input class="btn editar" type="submit" value="Enviar!">
+        </form>
+
+    </div>
 @endsection
