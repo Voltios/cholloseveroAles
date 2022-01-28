@@ -66,7 +66,7 @@
         @endforeach
         <div class="flechas">
             <p>
-                {{ $chollos->links() }}
+                {{-- {{ $chollos->links() }} --}}
             </p>
         </div>
     </div>

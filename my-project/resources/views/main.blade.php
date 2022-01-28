@@ -42,17 +42,38 @@
 
             <nav class="tagbar-nav">
                 <ul>
-                    <li><a href="cbd"><i class="fas fa-cannabis"> </i> Cannabis</a></li> {{-- a completar con route --}}
-                    <li><a href="lsd"><i class="fas fa-pills"> </i> LSD</a></li>
-                    <li><a href="oxd"><i class="fas fa-capsules"> </i> Oxicodona</a></li>
-                    <li><a href="mda"><i class="fas fa-tablets"> </i> MDA</a></li>
-                    <li><a href="ben"><i class="fas fa-radiation"> </i> Benzoilmetilecgonina</a></li>
-                    <li><a href="mrf"><i class="fas fa-syringe"> </i> Diacetilmorfina</a></li>
-                    <li><a href="psc"><i class="fas fa-utensils"></i> Psilocibios</a></li>
+                    <a href="cbd">
+                        <li><i class="fas fa-cannabis"> </i> Cannabis</li>
+                    </a> {{-- a completar con route --}}
+                    <a href="lsd">
+                        <li><i class="fas fa-pills"> </i> LSD</li>
+                    </a>
+                    <a href="oxd">
+                        <li><i class="fas fa-capsules"> </i> Oxicodona</li>
+                    </a>
+                    <a href="mda">
+                        <li><i class="fas fa-tablets"> </i> MDA</li>
+                    </a>
+                    <a href="ben">
+                        <li><i class="fas fa-radiation"> </i> Benzoilmetilecgonina
+                        </li>
+                    </a>
+                    <a href="mrf">
+                        <li><i class="fas fa-syringe"> </i> Diacetilmorfina
+                        </li>
+                    </a>
+                    <a href="psc">
+                        <li><i class="fas fa-utensils"></i> Psilocibios
+                        </li>
+                    </a>
                 </ul>
                 <ul>
-                    <li><a href="destacados"> <i class="fas fa-fire"></i> Destacados</a></li>
-                    <li><a href="nuevos"> <i class="fas fa-star"></i> Los más nuevos</a></li>
+                    <a href="{{route("destacados")}}">
+                        <li> <i class="fas fa-fire"></i> Destacados</li>
+                    </a>
+                    <a href="{{route("nuevos")}}">
+                        <li><i class="fas fa-star"></i> Los más nuevos</li>
+                    </a>
                 </ul>
             </nav>
         </div>

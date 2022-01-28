@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CholloController;
 use App\Models\Chollo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +24,12 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [CholloController::class, "main"])->name("main");
 
 Route::get("crear", [CholloController::class, "crear"])->name("crear");
-Route::post("crearChollo",[CholloController::class, "crearChollo"])->name("crearChollo");
-Route::get("infoChollo/{id?}", [CholloController::class, "informacion"])->name("infoChollo");
-Route::delete("eliminar/{id}" , [CholloController::class, "borrar"])->name("eliminar");
+
+Route::post("crearChollo", [CholloController::class, "crearChollo"])->name("crearChollo");
+
+Route::get("infoChollo/{id?}", [CholloController::class, "informacion"])->where("id", "[0-9]+")->name("infoChollo");
+
+Route::delete("eliminar/{id}", [CholloController::class, "borrar"])->name("eliminar");
 
 Route::get("editar/{id}", [CholloController::class, "editar"])->name("editar");
 Route::put("editar/{id}", [CholloController::class, "actualizar"])->name("actualizar");
@@ -39,3 +43,6 @@ Route::get("mrf", [CholloController::class, "mrf"])->name("mrf");
 Route::get("psc", [CholloController::class, "psc"])->name("psc");
 Route::get("destacados", [CholloController::class, "destacados"])->name("destacados");
 Route::get("nuevos", [CholloController::class, "nuevos"])->name("nuevos");
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

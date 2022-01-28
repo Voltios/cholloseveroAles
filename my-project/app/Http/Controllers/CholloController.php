@@ -81,25 +81,25 @@ class CholloController extends Controller
 
         $borrar->delete();
         $chollos = Chollo::all();
-        return view("index", @compact("chollos"));
+        return view("index", compact("chollos"));
     }
 
     public function informacion($id)
     {
         $chollo = Chollo::findOrFail($id);
-        return view("chollos.infoChollo", @compact("chollo"));
+        return view("chollos.infoChollo", compact("chollo"));
     }
 
     public function destacados()
     {
         $chollos = Chollo::orderBy("puntuacion", "desc")->get();
-        return view("index", @compact("chollos"));
+        return view("index", compact("chollos"));
     }
 
     public function nuevos()
     {
         $chollos = Chollo::orderBy("created_at", "desc")->get();
-        return view("index", @compact("chollos"));
+        return view("index", compact("chollos"));
     }
 
     public function cbd()
