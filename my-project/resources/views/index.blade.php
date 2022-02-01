@@ -49,8 +49,9 @@
 
                             </span> {{-- a editar para ponerle route("categoria") --}}
                         </p>
-
+                        <p class="puntuación-chollo"> <i class="fas fa-thumbs-up puntuación-chollo"></i> {{ $chollo->puntuacion }}</p>
                         <p class="descripcion-chollo"><b>Descripción: </b><br>{{ $chollo->descripcion }}</p>
+                        
                     </div>
                 </div>
                 <div class="col-3 right">
@@ -66,7 +67,7 @@
         @endforeach
         <div class="flechas">
             <p>
-                {{-- {{ $chollos->links() }} --}}
+                {{ $chollos->links() }}
             </p>
         </div>
     </div>

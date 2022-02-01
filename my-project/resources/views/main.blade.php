@@ -27,8 +27,8 @@
 
                     </li>
                     <li>
-                        <a href="" class="btn secondary-btn">
-                            <i class="fas fa-user    "></i> Regístrate / Inicia sesión</a>
+                        <a href="{{route("login")}}" class="btn secondary-btn">
+                            <i class="fas fa-user"></i> Regístrate / Inicia sesión</a>
                     </li>
                     <li>
                         <a href="{{ route('crear') }}" class="btn primary-btn">

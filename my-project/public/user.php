@@ -57,6 +57,7 @@ if (!isset($_SESSION['name']) && !isset($_POST['name'])) {
 
 }
 
+phpinfo();
 ?>
 
 </body>

@@ -131,8 +131,7 @@ input[type="search"] {
     transition: background-color .4s ease;
 }
 
-.tagbar-nav ul li a,
-i {
+.tagbar-nav ul li a {
     color: white;
 }
 
@@ -507,9 +506,7 @@ option:hover {
     text-align: center;
 }
 
-.flechas p {
-    /* width: 10px; */
-}
+
 
 .edit-page textarea {
     vertical-align: middle;
@@ -520,6 +517,9 @@ option:hover {
     padding: 20px;
 }
 
+.puntuacion-chollo i{
+    color: #4fb848 !important;
+}
 @media(max-width:720px) {
     .chollo img {
         display: none;
