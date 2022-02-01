@@ -1,23 +1,24 @@
-@extends('layouts.app')
+@extends('main')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+@section('perfil')
+    <div class="main-perfil">
+        <h1 class="h1 title">Panel de usuario</h1>
+        <div class="chollo-container">
+            <div class="chollo-unico">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <p class=""><b>Nombre: </b>{{ Auth::user()->name }}</p>
+                <p class=""><b>Dirección de correo electrónico: </b>{{ Auth::user()->email }}</p>
 
-                    {{ __('You are logged in!') }}
-                </div>
+
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                    Cerrar sesión
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection

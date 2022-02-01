@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('main')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
+@section('register')
+<div class="main-register">
+    <div class="chollo-unico">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>

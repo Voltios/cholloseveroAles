@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CholloController;
+use App\Http\Controllers\UserController;
 use App\Models\Chollo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,16 +24,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [CholloController::class, "main"])->name("main");
 
-Route::get("crear", [CholloController::class, "crear"])->name("crear");
+Route::get("crear", [UserController::class, "crear"])->name("crear");
 
-Route::post("crearChollo", [CholloController::class, "crearChollo"])->name("crearChollo");
+Route::post("crearChollo", [UserController::class, "crearChollo"])->name("crearChollo");
 
 Route::get("infoChollo/{id?}", [CholloController::class, "informacion"])->where("id", "[0-9]+")->name("infoChollo");
 
-Route::delete("eliminar/{id}", [CholloController::class, "borrar"])->name("eliminar");
+Route::delete("eliminar/{id}", [UserController::class, "borrar"])->name("eliminar");
 
-Route::get("editar/{id}", [CholloController::class, "editar"])->name("editar");
-Route::put("editar/{id}", [CholloController::class, "actualizar"])->name("actualizar");
+Route::get("editar/{id}", [UserController::class, "editar"])->name("editar");
+Route::put("editar/{id}", [UserController::class, "actualizar"])->name("actualizar");
 
 Route::get("cbd", [CholloController::class, "cbd"])->name("cbd");
 Route::get("lsd", [CholloController::class, "lsd"])->name("lsd");

@@ -24,17 +24,30 @@
                 <ul class="action-list">
                     <li>
                         <input type="search" name="" placeholder="Buscar...">
+                    </li>
+                    @guest
 
-                    </li>
-                    <li>
-                        <a href="{{route("login")}}" class="btn secondary-btn">
-                            <i class="fas fa-user"></i> Regístrate / Inicia sesión</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('crear') }}" class="btn primary-btn">
-                            <i class="fas fa-plus"></i> Subir producto
+                        @if (Route::has('login'))
+
+
+                            <a href="{{ route('login') }}" class="btn secondary-btn">
+                                <li>
+                                    <i class="fas fa-user"> </i> Regístrate / Inicia sesión
+                                </li>
+                            </a>
+                        @endif
+
+                    @else
+
+                        <a class="btn secondary-btn" href="{{ route('home') }}">
+                            <li> <i class="fas fa-user"> </i> {{ Auth::user()->name }} </li>
                         </a>
-                    </li>
+
+                        <a href="{{ route('crear') }}" class="btn primary-btn">
+                            <li> <i class="fas fa-plus"> </i> Subir producto </li>
+                        </a>
+
+                    @endguest
                 </ul>
             </nav>
         </div>
@@ -68,10 +81,10 @@
                     </a>
                 </ul>
                 <ul>
-                    <a href="{{route("destacados")}}">
+                    <a href="{{ route('destacados') }}">
                         <li> <i class="fas fa-fire"></i> Destacados</li>
                     </a>
-                    <a href="{{route("nuevos")}}">
+                    <a href="{{ route('nuevos') }}">
                         <li><i class="fas fa-star"></i> Los más nuevos</li>
                     </a>
                 </ul>
@@ -84,6 +97,9 @@
             @yield('chollos')
             @yield('informacion')
             @yield('editar')
+            @yield('perfil')
+            @yield('login')
+            @yield('register')
         </div>
     </main>
 

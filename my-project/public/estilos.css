@@ -52,7 +52,9 @@
     align-content: center;
     display: flex;
 }
-
+.blanco {
+    color: white;
+}
 .btn {
     border: none;
     border-radius: 10px;
